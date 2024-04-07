@@ -1,0 +1,41 @@
+# .NET 7-specific
+bin/
+obj/
+*.user
+
+# Visual Studio files
+.vscode/
+*.suo
+*.sln.cache
+*.sln.docstates
+*.suo
+*.user
+*.userosscache
+*.sln.ide
+*.sln.ide-shutdown
+
+# Rider files
+.idea/
+
+# NuGet packages
+*.nupkg
+*.paket
+packages/
+*.lock.json
+*.bin/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.log
+TestResults
+*.trx
+.vs/
+
+# Rider
+*.sln.iml
+*.swp
+*.swo
