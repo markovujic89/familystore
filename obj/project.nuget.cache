@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qVQlx6hp2HFJ6O1uCKaMdaDeozrsbR0j+INXnGm6c2KP1HpSisnZ0yOVTsOqsOwLzGuSUlcUi88HEfypYKlRag==",
+  "dgSpecHash": "gKxI5qYivz9hI3v78b9NMCHAtesIMutf3ZwaL6v8q7cER/gjfGw9kORhMRG8Ld2fGdhW8IbRH7mjLQbCy9B8Xw==",
   "success": true,
   "projectFilePath": "C:\\Learning\\FamilyStore\\FamilyStore\\FamilyStore.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\marko\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\entityframework.sqlservercompact\\6.4.4\\entityframework.sqlservercompact.6.4.4.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\marko\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.17\\microsoft.aspnetcore.authentication.jwtbearer.7.0.17.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.9\\microsoft.aspnetcore.openapi.7.0.9.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
