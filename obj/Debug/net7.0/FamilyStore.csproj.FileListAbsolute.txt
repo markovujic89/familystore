@@ -84,3 +84,4 @@ C:\Learning\FamilyStore\FamilyStore\bin\Debug\net7.0\Humanizer.dll
 C:\Learning\FamilyStore\FamilyStore\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Learning\FamilyStore\FamilyStore\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Learning\FamilyStore\FamilyStore\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Learning\FamilyStore\FamilyStore\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

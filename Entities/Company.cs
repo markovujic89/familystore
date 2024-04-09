@@ -1,4 +1,4 @@
-﻿namespace FamilyStore.Models;
+﻿namespace FamilyStore.Entities;
 
 public class Company
 {

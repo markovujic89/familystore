@@ -1,4 +1,4 @@
-﻿using FamilyStore.Models;
+﻿using FamilyStore.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace FamilyStore.Data;

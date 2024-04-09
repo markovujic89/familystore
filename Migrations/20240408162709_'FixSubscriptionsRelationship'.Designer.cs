@@ -4,6 +4,7 @@ using FamilyStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyStore.Migrations
 {
     [DbContext(typeof(FamilyStoreDbContext))]
-    partial class FamilyStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240408162709_'FixSubscriptionsRelationship'")]
+    partial class FixSubscriptionsRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +24,6 @@ namespace FamilyStore.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("CompanySubscription", b =>
-                {
-                    b.Property<Guid>("CompanySubscriptionsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("SubscriptionsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CompanySubscriptionsId", "SubscriptionsId");
-
-                    b.HasIndex("SubscriptionsId");
-
-                    b.ToTable("CompanySubscription");
-                });
 
             modelBuilder.Entity("FamilyStore.Models.Company", b =>
                 {
@@ -64,6 +52,9 @@ namespace FamilyStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<Guid?>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
@@ -77,7 +68,14 @@ namespace FamilyStore.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Subscriptions");
                 });
@@ -104,49 +102,25 @@ namespace FamilyStore.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SubscriptionUser", b =>
-                {
-                    b.Property<int>("SubscriptionsId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("UserSubscriptionsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("SubscriptionsId", "UserSubscriptionsId");
-
-                    b.HasIndex("UserSubscriptionsId");
-
-                    b.ToTable("SubscriptionUser");
-                });
-
-            modelBuilder.Entity("CompanySubscription", b =>
+            modelBuilder.Entity("FamilyStore.Models.Subscription", b =>
                 {
                     b.HasOne("FamilyStore.Models.Company", null)
-                        .WithMany()
-                        .HasForeignKey("CompanySubscriptionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FamilyStore.Models.Subscription", null)
-                        .WithMany()
-                        .HasForeignKey("SubscriptionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SubscriptionUser", b =>
-                {
-                    b.HasOne("FamilyStore.Models.Subscription", null)
-                        .WithMany()
-                        .HasForeignKey("SubscriptionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Subscriptions")
+                        .HasForeignKey("CompanyId");
 
                     b.HasOne("FamilyStore.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserSubscriptionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Subscriptions")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("FamilyStore.Models.Company", b =>
+                {
+                    b.Navigation("Subscriptions");
+                });
+
+            modelBuilder.Entity("FamilyStore.Models.User", b =>
+                {
+                    b.Navigation("Subscriptions");
                 });
 #pragma warning restore 612, 618
         }
