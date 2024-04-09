@@ -1,16 +1,18 @@
-﻿using FamilyStore.Models;
-using FamilyStore.Models.Login;
+﻿using FamilyStore.Models.Login;
 using FamilyStore.Repositories.Interface;
+using FamilyStore.Services.Interfaces;
 
 namespace FamilyStore.Services;
 
-public class AuthService:IAuthService
+public class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepository;
+    private readonly IJwtProvider _jwtProvider;
 
-    public AuthService(IUserRepository userRepository)
+    public AuthService(IUserRepository userRepository, IJwtProvider jwtProvider)
     {
         _userRepository = userRepository;
+        _jwtProvider = jwtProvider;
     }
 
     public async Task<LoginResponse> GetAccessTokenAsync(LoginRequest request)
@@ -20,13 +22,13 @@ public class AuthService:IAuthService
 
         if (user is null)
         {
-            return new LoginResponse{ ErrorMessage = "Invalid Credentials"};
+            return new LoginResponse { ErrorMessage = "Invalid Credentials" };
         }
+
         // Generate JWT
-        
+        var token = _jwtProvider.GenerateTokenAsync(user);
+
         // Return Token
-        
-        // https://www.youtube.com/watch?v=4cFhYUK8wnc&list=PLYpjLpq5ZDGtJOHUbv7KHuxtYLk1nJPw5
-        throw new NotImplementedException();
+        return new LoginResponse { Token = token };
     }
 }

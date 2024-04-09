@@ -1,7 +1,6 @@
-﻿using FamilyStore.Models;
-using FamilyStore.Models.Login;
+﻿using FamilyStore.Models.Login;
 
-namespace FamilyStore.Services;
+namespace FamilyStore.Services.Interfaces;
 
 public interface IAuthService
 {

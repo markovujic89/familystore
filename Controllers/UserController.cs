@@ -1,6 +1,7 @@
 ﻿using FamilyStore.Entities;
 using FamilyStore.Models;
 using FamilyStore.Repositories.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FamilyStore.Controllers;
@@ -17,6 +18,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> GetAllUsers()
     {
         var users = await _userRepository.GetAllAsync();
