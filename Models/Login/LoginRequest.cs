@@ -1,6 +1,6 @@
-﻿namespace FamilyStore.Models;
+﻿namespace FamilyStore.Models.Login;
 
-public class Login
+public class LoginRequest
 {
     public string Email { get; set; }
     

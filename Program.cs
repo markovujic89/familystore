@@ -1,4 +1,7 @@
 using FamilyStore.Data;
+using FamilyStore.Repositories;
+using FamilyStore.Repositories.Interface;
+using FamilyStore.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +15,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<FamilyStoreDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("FamilyStoreDbContext"))
 );
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
