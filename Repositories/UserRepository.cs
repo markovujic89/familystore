@@ -1,8 +1,8 @@
-﻿using System.Transactions;
-using FamilyStore.Data;
+﻿using FamilyStore.Data;
 using FamilyStore.Entities;
 using FamilyStore.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace FamilyStore.Repositories;
 
@@ -33,7 +33,7 @@ public class UserRepository : IUserRepository
 
     public async Task UpdateAsync(User userFroUpdate)
     {
-        using var transactionScope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
+        await using IDbContextTransaction transaction = await _context.Database.BeginTransactionAsync();
         try
         {
             var user = await _context.Users.FindAsync(userFroUpdate.Id);
@@ -43,18 +43,18 @@ public class UserRepository : IUserRepository
                 user.Email = userFroUpdate.Email;
                 user.Name = userFroUpdate.Name;
                 user.Age = userFroUpdate.Age;
-                    
+
                 _context.Entry(user).State = EntityState.Modified;
-                    
+
                 await _context.SaveChangesAsync();
             }
 
-            transactionScope.Complete();
+            await transaction.CommitAsync();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            transactionScope.Dispose();
+            await transaction.RollbackAsync();
         }
     }
 
