@@ -1,4 +1,5 @@
-﻿using FamilyStore.Data;
+﻿using System.Transactions;
+using FamilyStore.Data;
 using FamilyStore.Entities;
 using FamilyStore.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -30,10 +31,31 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(User user)
+    public async Task UpdateAsync(User userFroUpdate)
     {
-        _context.Entry(user).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
+        using var transactionScope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
+        try
+        {
+            var user = await _context.Users.FindAsync(userFroUpdate.Id);
+
+            if (user is not null)
+            {
+                user.Email = userFroUpdate.Email;
+                user.Name = userFroUpdate.Name;
+                user.Age = userFroUpdate.Age;
+                    
+                _context.Entry(user).State = EntityState.Modified;
+                    
+                await _context.SaveChangesAsync();
+            }
+
+            transactionScope.Complete();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            transactionScope.Dispose();
+        }
     }
 
     public async Task DeleteAsync(Guid id)
