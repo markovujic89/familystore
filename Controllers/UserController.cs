@@ -1,6 +1,7 @@
 ﻿using FamilyStore.Entities;
 using FamilyStore.Models;
 using FamilyStore.Repositories.Interface;
+using FamilyStore.Services.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +19,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize]
+    [HasPermission(Permission.Read)]
     public async Task<IActionResult> GetAllUsers()
     {
         var users = await _userRepository.GetAllAsync();
@@ -26,6 +27,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<IActionResult> GetUser(Guid id)
     {
         var user = await _userRepository.GetByIdAsync(id);
@@ -37,6 +39,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CreateUser(UserRequest userRequest)
     {
         if (String.IsNullOrEmpty(userRequest.Email))
@@ -58,6 +61,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<IActionResult> UpdateUser(Guid id, User user)
     {
         if (id != user.Id)
@@ -69,6 +73,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> DeleteUser(Guid id)
     {
         await _userRepository.DeleteAsync(id);

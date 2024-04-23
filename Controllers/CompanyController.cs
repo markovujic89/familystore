@@ -1,5 +1,6 @@
 ﻿using FamilyStore.Entities;
 using FamilyStore.Repositories.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FamilyStore.Controllers;
@@ -16,6 +17,7 @@ public class CompanyController:ControllerBase
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> GetAllCompanies()
     {
         var companies = await _companyRepository.GetAllAsync();
@@ -23,6 +25,7 @@ public class CompanyController:ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<IActionResult> GetCompany(Guid id)
     {
         var company = await _companyRepository.GetByIdAsync(id);
@@ -30,6 +33,7 @@ public class CompanyController:ControllerBase
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CreateCompany(Company company)
     {
         await _companyRepository.AddAsync(company);
@@ -37,6 +41,7 @@ public class CompanyController:ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<IActionResult> UpdateCompany(Guid id, Company company)
     {
         if (id != company.Id)
@@ -48,6 +53,7 @@ public class CompanyController:ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> DeleteCompany(Guid id)
     {
         await _companyRepository.DeleteAsync(id);
