@@ -74,7 +74,6 @@ C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\staticwebassets.pack.json
 C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\staticwebassets.build.json
 C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\staticwebassets.development.json
 C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\scopedcss\bundle\FamilyStore.styles.css
-C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\FamilyStore.csproj.CopyComplete
 C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\FamilyStore.dll
 C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\refint\FamilyStore.dll
 C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\FamilyStore.pdb
@@ -85,3 +84,5 @@ C:\Learning\FamilyStore\FamilyStore\bin\Debug\net7.0\Microsoft.EntityFrameworkCo
 C:\Learning\FamilyStore\FamilyStore\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Learning\FamilyStore\FamilyStore\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Learning\FamilyStore\FamilyStore\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\FamilyStore.sourcelink.json
+C:\Learning\FamilyStore\FamilyStore\obj\Debug\net7.0\FamilySt.3C752251.Up2Date

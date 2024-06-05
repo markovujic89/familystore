@@ -39,7 +39,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize]
+    [HasPermission(Permission.Access)]
     public async Task<IActionResult> CreateUser(UserRequest userRequest)
     {
         if (String.IsNullOrEmpty(userRequest.Email))
@@ -61,7 +61,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    [Authorize]
+    [HasPermission(Permission.Access)]
     public async Task<IActionResult> UpdateUser(Guid id, User user)
     {
         if (id != user.Id)
@@ -73,7 +73,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    [Authorize]
+    [HasPermission(Permission.Access)]
     public async Task<IActionResult> DeleteUser(Guid id)
     {
         await _userRepository.DeleteAsync(id);

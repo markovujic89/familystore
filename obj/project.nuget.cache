@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gKxI5qYivz9hI3v78b9NMCHAtesIMutf3ZwaL6v8q7cER/gjfGw9kORhMRG8Ld2fGdhW8IbRH7mjLQbCy9B8Xw==",
+  "dgSpecHash": "exVMyd8oeAXRHGZR0xjTVD/G0a2oaRjaGhR/M5pBJr7n21qMij6MLCJa3vyZrj4xt7s9jljTvz7Z5SNULRd3gQ==",
   "success": true,
   "projectFilePath": "C:\\Learning\\FamilyStore\\FamilyStore\\FamilyStore.csproj",
   "expectedPackageFiles": [
@@ -81,7 +81,11 @@
     "C:\\Users\\marko\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\marko\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\marko\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\marko\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.18\\microsoft.netcore.app.ref.7.0.18.nupkg.sha512",
+    "C:\\Users\\marko\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.18\\microsoft.windowsdesktop.app.ref.7.0.18.nupkg.sha512",
+    "C:\\Users\\marko\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.18\\microsoft.aspnetcore.app.ref.7.0.18.nupkg.sha512",
+    "C:\\Users\\marko\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.18\\microsoft.netcore.app.host.win-x64.7.0.18.nupkg.sha512"
   ],
   "logs": [
     {
