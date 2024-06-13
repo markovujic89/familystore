@@ -15,4 +15,12 @@ public class FamilyStoreDbContext:DbContext
     public DbSet<User> Users { get; set; }
     
     public DbSet<Subscription> Subscriptions { get; set; }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>()
+            .Property(p => p.RowVersion)
+            .IsRowVersion()
+            .IsConcurrencyToken();
+    }
 }

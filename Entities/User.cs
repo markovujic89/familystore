@@ -10,6 +10,8 @@ public class User
     public string Email { get; set; }
     
     public string Password { get; set; }
+    
+    public byte[] RowVersion { get; set; }
 
     // Navigation property for one-to-many relationship with Subscription
     public ICollection<Subscription> Subscriptions { get; set; }

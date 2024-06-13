@@ -60,6 +60,7 @@ public class UserRepository : IUserRepository
 
     public async Task DeleteAsync(Guid id)
     {
+        
         var userToDelete = await _context.Users.FindAsync(id);
         if (userToDelete != null)
         {
